@@ -1,0 +1,113 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# AI/ML specific
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.safetensors
+datasets/
+data/
+models/
+checkpoints/
+weights/
+*.model
+*.bin
+
+# Benchmark results and logs
+results/
+logs/
+*.log
+benchmark_results_*.json
+benchmark_results_*.csv
+*.prof
+*.trace
+
+# System and temporary files
+.env
+.env.local
+*.tmp
+*.temp
+temp/
+tmp/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+*.exe
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# Python (in case of Python tooling)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# CUDA/GPU specific
+*.cubin
+*.fatbin
+*.ptx
+
+# Memory dumps and core files
+core
+*.core
+*.dump
+
+# Profiling and performance data
+perf.data*
+cachegrind.out.*
+callgrind.out.*
+massif.out.*
+
+# Test artifacts
+test_results/
+coverage/
+
+# Documentation builds
+book/
+docs/_build/ 

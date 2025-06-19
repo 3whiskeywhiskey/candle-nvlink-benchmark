@@ -1,0 +1,53 @@
+{
+  "hardware": {
+    "device_type": "metal",
+    "num_devices": 1,
+    "memory_per_device_gb": 128.0,
+    "interconnect": "unified",
+    "network_bandwidth_gbps": 10.0,
+    "compute_capability": "M4"
+  },
+  "model": {
+    "model_type": "transformer",
+    "size": "medium",
+    "parameters": 350000000,
+    "input_shape": [
+      4,
+      128
+    ],
+    "output_shape": [
+      4,
+      128,
+      50257
+    ],
+    "layers": 12,
+    "hidden_size": 1024,
+    "attention_heads": 16
+  },
+  "training": {
+    "batch_size": 4,
+    "sequence_length": 128,
+    "learning_rate": 0.0001,
+    "num_epochs": 1,
+    "warmup_steps": 200,
+    "gradient_accumulation_steps": 8,
+    "mixed_precision": true,
+    "checkpoint_interval": 500
+  },
+  "parallelization": {
+    "strategy": "data",
+    "data_parallel_size": 1,
+    "model_parallel_size": 1,
+    "pipeline_parallel_size": 1,
+    "gradient_sync_freq": 1,
+    "communication_backend": "gloo"
+  },
+  "benchmark": {
+    "warmup_iterations": 2,
+    "measurement_iterations": 5,
+    "memory_profiling": false,
+    "communication_profiling": false,
+    "power_profiling": false,
+    "output_detailed_logs": false
+  }
+} 
