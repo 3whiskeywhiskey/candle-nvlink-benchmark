@@ -50,8 +50,12 @@ impl BenchmarkRunner {
         // Initialize system metrics
         let system_metrics = SystemMetrics::new()?;
         
-        // Initialize memory monitor with 90% of available memory as threshold
-        let max_memory_threshold_gb = config.hardware.memory_per_device_gb as f64 * 0.9;
+        // Initialize memory monitor with reasonable system memory threshold
+        // Use 90% of actual total system memory instead of GPU memory per device
+        let mut temp_system = sysinfo::System::new_all();
+        temp_system.refresh_all();
+        let total_system_memory_gb = temp_system.total_memory() as f64 / 1024.0 / 1024.0 / 1024.0;
+        let max_memory_threshold_gb = total_system_memory_gb * 0.9;
         let memory_monitor = MemoryMonitor::new(max_memory_threshold_gb);
         
         Ok(Self {
