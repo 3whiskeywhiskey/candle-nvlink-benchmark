@@ -1,0 +1,46 @@
+{
+  "hardware": {
+    "device_type": "cuda",
+    "num_devices": 4,
+    "memory_per_device_gb": 16.0,
+    "interconnect": "nvlink",
+    "network_bandwidth_gbps": 25.0,
+    "compute_capability": "7.0"
+  },
+  "model": {
+    "model_type": "transformer",
+    "size": "medium",
+    "parameters": 350000000,
+    "input_shape": [4, 256],
+    "output_shape": [4, 256, 50257],
+    "layers": 12,
+    "hidden_size": 1024,
+    "attention_heads": 16
+  },
+  "training": {
+    "batch_size": 4,
+    "sequence_length": 256,
+    "learning_rate": 0.0001,
+    "num_epochs": 1,
+    "warmup_steps": 50,
+    "gradient_accumulation_steps": 1,
+    "mixed_precision": true,
+    "checkpoint_interval": 500
+  },
+  "parallelization": {
+    "strategy": "hybrid",
+    "data_parallel_size": 2,
+    "model_parallel_size": 2,
+    "pipeline_parallel_size": 1,
+    "gradient_sync_freq": 1,
+    "communication_backend": "nccl"
+  },
+  "benchmark": {
+    "warmup_iterations": 5,
+    "measurement_iterations": 20,
+    "memory_profiling": true,
+    "communication_profiling": true,
+    "power_profiling": true,
+    "output_detailed_logs": true
+  }
+} 
