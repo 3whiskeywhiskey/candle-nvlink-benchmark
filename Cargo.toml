@@ -6,10 +6,10 @@ authors = ["Your Name <your.email@example.com>"]
 description = "Distributed Training Benchmark Suite using Candle - M4 Metal to 4xV100 NVLink"
 
 [dependencies]
-candle-core = { git = "https://github.com/huggingface/candle.git", features = ["cuda"] }
-candle-nn = { git = "https://github.com/huggingface/candle.git" }
-candle-transformers = { git = "https://github.com/huggingface/candle.git" }
-candle-datasets = { git = "https://github.com/huggingface/candle.git" }
+candle-core = { path = "candle/candle-core", features = ["cuda"] }
+candle-nn = { path = "candle/candle-nn" }
+candle-transformers = { path = "candle/candle-transformers" }
+candle-datasets = { path = "candle/candle-datasets" }
 
 # Backend support
 candle-metal-kernels = { version = "0.9.1", optional = true }

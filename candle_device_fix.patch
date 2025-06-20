@@ -1,0 +1,13 @@
+--- a/candle-core/src/cuda_backend/device.rs
++++ b/candle-core/src/cuda_backend/device.rs
+@@ -292,7 +292,10 @@ impl BackendDevice for CudaDevice {
+     }
+ 
+     fn same_device(&self, rhs: &Self) -> bool {
+-        self.id == rhs.id
++        // FIX: Check physical GPU ordinal instead of just DeviceId instance
++        // This prevents unnecessary CPU roundtrips for tensors on the same physical GPU
++        self.id == rhs.id || self.context.ordinal() == rhs.context.ordinal()
+     }
+ 
+     fn zeros_impl(&self, shape: &Shape, dtype: DType) -> Result<CudaStorage> {
